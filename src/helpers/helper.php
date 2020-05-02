@@ -1,12 +1,10 @@
 <?php
 require 'autoload.php';
 
-ParseClient::initialize( $app_id, $rest_key, $master_key );
+use Parse\ParseClient;
 
-// Users of Parse Server will need to point ParseClient at their remote URL and Mount Point:
-ParseClient::setServerURL('https://my-parse-server.com:port','parse');
-
-
-3530e650-3586-4db1-bebd-c3451c8ed48a
+// Initializes with the <APPLICATION_ID>, <REST_KEY>, and <MASTER_KEY>
+ParseClient::initialize( "yzRv0M18nfehYtjg4toFBzWkRL1WL2Vs6CJVDISv", "f98A0W7r7G1DYzkLjTx5fCmKf4EZTUBleBmC3AmZ", "ExzYiYfhx4vcfRRK7SqL7Ez9gibXUHOYwPrlOuMq" );
+ParseClient::setServerURL('https://parseapi.back4app.com', '/');
 
 ?>
