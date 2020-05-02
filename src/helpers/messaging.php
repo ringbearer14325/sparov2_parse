@@ -1,3 +1,4 @@
+<?php
 $myCustomObject = new ParseObject("Message");
 
 $myCustomObject->set("toUser", ParseUser::getCurrentUser());
@@ -21,4 +22,8 @@ try {
   // error is a ParseException object with an error code and message.
   echo 'Failed to create new object, with error message: ' . $ex->getMessage();
 }
+
+
+
+?>
 
