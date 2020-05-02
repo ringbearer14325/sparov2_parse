@@ -1,0 +1,8 @@
+
+{
+    "user": "user",
+    "chats": "chats",
+    "content":"content",
+    "readError":"readError",
+    "writeError":"writeError"
+} 

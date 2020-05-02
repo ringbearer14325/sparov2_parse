@@ -1,4 +1,22 @@
 <?php
+
+use Parse\ParseFile;
+use Parse\ParseUser;
+
+$user = new ParseUser;
+$chats = new ParseFile;
+$content = new ParseFile;
+$readError = new ParseError;
+$writeError = new ParseError;
+
+
+
+ ($_POST['home']);
+
+
+
+
+
 $myCustomObject = new ParseObject("Message");
 
 $myCustomObject->set("toUser", ParseUser::getCurrentUser());
