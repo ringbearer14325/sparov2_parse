@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import Parse from 'parse';
-=======
 import Parse from 'src/helpers/helper.php'; 
->>>>>>> 8345f6072ed48d1a6f7fcec7503ee4eabae82497
 import {
     Route,
     browserRouter as Router,
@@ -14,11 +11,7 @@ import {
     import Chat from './pages/Chat';
     import Signup from './pages/Signup';
     import Login from './pages/Login';
-<<<<<<< HEAD
-    import './css/styles.css';
-=======
     import '.src/css/styles.css';
->>>>>>> 8345f6072ed48d1a6f7fcec7503ee4eabae82497
 
 
 
