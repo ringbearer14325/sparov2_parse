@@ -16,8 +16,20 @@ $message->set("fromUser", ParseUser::getCurrentUser());
 $message->set("message","a string");
 $message->set("Connections", new ParseObject("Connections"));
 
-if (isset($_POST[$applicationId]) && $_POST([$REST_API_KEY] ) ) {
-  die ("Invalid headers for Parse Server");
+
+if (empty($_POST[$applicationId]) && empty($_POST([$REST_API_KEY]) ) ) die(); 
+
+
+if (isset($_POST[$applicationId]) && isset($_POST([$REST_API_KEY]) ) ) {
+  // set responce code = 201
+  http_response_code(201);
+
+  $subject = $_POST($message);
+  $to = $_POST($url);
+  $body = $_POST($body);
+  
+
+
 } else try {
    $message->save();
    echo 'New object created with objectId: ' . $message->getObjectId();
