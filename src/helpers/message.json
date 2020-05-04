@@ -1,8 +1,20 @@
 
 {
-    "user": "user",
-    "chats": "chats",
-    "content":"content",
-    "readError":"readError",
-    "writeError":"writeError"
-} 
+   "toUser": {
+    "__type": "Pointer",
+    "className": "_User",
+    "objectId": "<THE_REFERENCED_OBJECT_ID>"
+},
+   "read": true,
+    "fromUser": {
+        "__type": "Pointer",
+        "className": "_User",
+        "objectId": "<THE_REFERENCED_OBJECT_ID>"
+    },
+   "message": "A string",
+   "Connections": {
+    "__type": "Pointer",
+    "className": "Connections",
+    "objectId": "<THE_REFERENCED_OBJECT_ID>"
+}
+}
