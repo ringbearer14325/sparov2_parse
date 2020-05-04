@@ -1,23 +1,22 @@
 <?php
 
-use Parse\ParseFile;
+
 use Parse\ParseUser;
 use Parse\ParseException;
+use Parse\ParseObject;
 
+$url = "https://parseapi.back4app.com/classes/Message";
+$myCustomObject = new ParseObject("Message");
 
-$user = new ParseUser;
-$chats = new ParseFile;
-$content = new ParseFile;
-$readError = new ParseError;
-$writeError = new ParseError;
+$myCustomObject->set("toUser", ParseUser::getCurrentUser());
+$myCustomObject->set("read", true);
+$myCustomObject->set("fromUser", ParseUser::getCurrentUser());
+$myCustomObject->set("message","a string");
+$myCustomObject->set("Connections", new ParseObject("Connections"));
 
- ($_POST['home']);
+($_POST['X-Parse-Application-Id: BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f]']);
+$_POST['X-Parse-REST-API-Key: swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w'];
 
- $myCustomObject = new ParseUser($user);
- $myCustomObject = new ParseFile($chats);
- $myCustomObject = new ParseFile($content);
- $myCustomObject = new ParseError($readError);
- $myCustomObject = new ParseError($writeError);
 
 
 
