@@ -1,7 +1,7 @@
 import { user } from "../helpers/signup.php";
+import { auth } from "../pages/auth.js";
+import { message } from "../helpers/messaging.php";
 import React from 'react';
-import { auth } from "../pages/auth";
-import { db } from "dbserver";
 
 class chatPanel extends React.Component {
     render() {
@@ -19,17 +19,17 @@ class messagePanel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: auth().currentUser,
+            /*user: auth().currentUser,
             chats: [],
             content: '',
             readError: null,
-            writeError: null
+            writeError: null */
 
-            /* toUser:auth.currentUser,
+            toUser:auth().currentUser,
             read: '',
-            fromUser:auth.currentUser,
+            fromUser:auth().currentUser,
             message:'',
-            Connections */
+            Connections: null
         };
 
         this.handleChange = this.handleChange.bind(this);
