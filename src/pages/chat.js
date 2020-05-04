@@ -25,6 +25,11 @@ class messagePanel extends React.Component {
             readError: null,
             writeError: null
 
+            /* toUser:auth.currentUser,
+            read: '',
+            fromUser:auth.currentUser,
+            message:'',
+            Connections */
         };
 
         this.handleChange = this.handleChange.bind(this);
