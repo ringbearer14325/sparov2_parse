@@ -82,7 +82,7 @@ class messagePanel extends React.Component {
             </td>
             })}
             </div>
-            <form onSubmit={this.handleSubmit}>
+            <form action= "/messaging.php" onSubmit={this.handleSubmit}>
                <input onChange={this.handleChange} value={this.state.content}></input>
                 {this.state.error ? <p>{this.state.writeError}</p> : null}
               <button type="submit">Send</button>
