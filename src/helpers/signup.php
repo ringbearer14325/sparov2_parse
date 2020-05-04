@@ -1,4 +1,12 @@
 <?php 
+
+
+$url = "https://parseapi.back4app.com/users";
+$applicationId = "X-Parse-Application-Id: BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f";
+$REST_API_KEY = "X-Parse-REST-API-Key: swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w";
+$body = "src\components\user.json";
+
+
 $user = new ParseUser();
 $user->set("username", "my name");
 $user->set("password", "my pass");

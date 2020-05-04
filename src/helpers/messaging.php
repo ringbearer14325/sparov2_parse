@@ -6,7 +6,7 @@ use Parse\ParseObject;
 
 // add header variables
 $url = "https://parseapi.back4app.com/classes/Message";
-$body = "src\helpers\message.json";
+$body = "src\components\message.json";
 $applicationId = "X-Parse-Application-Id: BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f";
 $REST_API_KEY = "X-Parse-REST-API-Key: swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w";
 
@@ -24,17 +24,18 @@ if (empty($_POST[$applicationId]) && empty($_POST([$REST_API_KEY]) ) ) die();
 
 if (isset($_POST[$applicationId]) && isset($_POST([$REST_API_KEY]) ) ) {
   
-  // set responce code = 201
-  http_response_code(201);
-
-
+  
+  
   // data
   $subject = $_POST($message);
   $to = $_POST($url, $body);
+  
+} try {
+  $message->save();
 
-} else try {
-   $message->save();
-   echo 'New object created with objectId: ' . $message->getObjectId();
+  // set responce code = 201
+  echo http_response_code(201);
+  echo 'New object created with objectId: ' . $message->getObjectId();
  } catch (ParseException $ex) {
    // Execute any logic that should take place if the save fails.
    // error is a ParseException object with an error code and message.
