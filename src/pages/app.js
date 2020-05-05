@@ -8,7 +8,7 @@ import {
     Redirect
     } from "react-router-dom";
     import Home from './pages/Home';
-    import Chat from './pages/Chat';
+    import chatPanel from './pages/Chat';
     import Signup from './pages/Signup';
     import Login from './pages/Login';
     import '.src/css/styles.css';
