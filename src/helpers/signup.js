@@ -42,7 +42,7 @@ async handleSubmit(event) {
         return (
             <div>
                 <div className="loginPanel">
-                <form action="/signup.php" onSubmit={this.handleSubmit}>
+                <form action="/signup.php" method="post" onSubmit={this.handleSubmit}>
                     <h1>
                         Sign Up to
                          <Link to="/">Sparo</Link>
@@ -59,12 +59,13 @@ async handleSubmit(event) {
                         <button type="submit">Sign up</button>
                     </div>
                     <hr></hr>
-                    <p>Already have an account? <Link to="/login">Login</Link></p>
+                    <p>Already have an account? <Link to="/login">Login</Link>
+                    </p>
                 </form>
                 </div>
             </div>
-        )
-    }
+        );
+    }    
 }
 
       

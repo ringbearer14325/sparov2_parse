@@ -2,6 +2,7 @@
 
 use Parse\ParseException;
 use Parse\ParseUser;
+require "src/helpers/Signup.php";
 
 // add headers variables
 $url = "https://parseapi.back4app.com/login";
