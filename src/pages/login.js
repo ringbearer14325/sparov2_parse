@@ -22,7 +22,7 @@ export default class Login extends Component {
         });
     }
 
-    async handlerSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
         this.setState({ error: "" });
         try {
@@ -40,15 +40,15 @@ export default class Login extends Component {
                 onSubmit={this.handleSubmit}
                 >
                 <h1>
-                    Login to="/"
-                    Sparo
+                        Login to
+                    <link to="/">
+                        Sparo
                     </link>
                     </h1>
                     <p>
                         Fill in the form below to login to your account.
                     </p>
                   <div>
-                  </div>
                      <input 
                        placeholder="Email"
                        name="email"
