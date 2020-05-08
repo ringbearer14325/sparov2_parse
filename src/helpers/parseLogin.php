@@ -1,5 +1,4 @@
 <?php
-
 use Parse\ParseException;
 use Parse\ParseUser;
 require "src\components\keys.php";
