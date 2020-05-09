@@ -8,9 +8,7 @@ require_once("load.php");
 if($SERVER["request_method"] == "post") {
     $register_status = $login->register($_POST);
 }
-
 ?>
-
 
 
 <?php
@@ -29,7 +27,8 @@ $user->set("email", "email@example.com");
 if (isset( $register_status ) ) : 
     ($register_status['status'] == true ? $class = 'success' : $class = 'error'); 
 
-// post method for headers
+    
+    // post method for headers
 if (isset($_POST[$applicationId]) && isset($_POST([$REST_API_KEY]))) {
   // data
   $subject = $_POST($user);
@@ -45,5 +44,6 @@ try {
    }
 
 }
+
 ?>
 
