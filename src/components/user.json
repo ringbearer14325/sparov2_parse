@@ -2,12 +2,7 @@
     "username": "A string",
     "name": "A string",
     "email": "A string",
-    "password": "#Password123",
-    "confirmPassword": "A string",
-    "countryCode": "A string",
-    "birthday": "2018-11-12T13:13:45.958Z",
-    "gender": "A string",
-    "bio": "A string"
+    "password": "#Password123"
   
 }
 

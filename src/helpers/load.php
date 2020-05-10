@@ -1,7 +1,6 @@
 <?php
-require_once('confog.php');
-require_once('includes/class-db.php');
-require_once('includes/class-login.php');
+require_once('keys.php');
+require_once('class-Login.php');
 
 
 ?>

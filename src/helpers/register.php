@@ -1,7 +1,6 @@
 <?php 
 use Parse\ParseException;
 use Parse\ParseUser;
-require "src\components\keys.php";
 require_once("load.php");
 
 // handle registration
