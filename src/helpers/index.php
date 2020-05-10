@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 //verify session
 if ( $login->verify_session() ) {
-    $user = $loginin->user;
+    $user = $login->user;
 
     include( 'home.php' );
 } else {
