@@ -4,27 +4,16 @@ use Parse\ParseException;
 use Parse\ParseUser;
 
 class Login {
+ public $user = new ParseUser();
   
-  
-  // add headers variables
-  public $url = "https://parseapi.back4app.com/login";
-  public $body = "src\components\user.json";
-  public $applicationId = "applicationId";
-  public $REST_API_KEY = "REST_API_KEY";
-  
-  
-  
-  public function __construct() {
+  public function __construct() {    
     global $users;
-    
     session_start();
-    
-    $this->user = $users;    
-    //$this->user = new ParseUser();
+       
+    $this->users = $users;
   }  
-  
-
-public function verify_login($post) {
+    
+  public function verify_login($post) {
   if ( ! isset($post['username'] ) || ! isset($post['password'] ) ) {
     return false;
   }
@@ -72,10 +61,15 @@ public function register($post) {
     $user->set("password", "my pass");
     $user->set("email", "email@example.com");
   
-    if (isset($_POST["https://parseapi.back4app.com/login"] ) ) {
-      header("X-Parse-Application-Id: BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f",
-       "X-Parse-REST-API-Key: swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w");
+    $body = "src\components\user.json";
+    $url = "https://parseapi.back4app.com/login";
+    $keys = array(
+    'application_id' => "X-Parse-Application-Id: BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f",
+    'REST_API_KEY' => "X-Parse-REST-API-Key: swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w",
+    );
 
+    if (isset($_POST($url, $keys, $body) ) )  {
+      //try and POST the variables with the keys and the body
   try {
     $insert = $user->signUp();
     // user gets created in the server
@@ -108,7 +102,6 @@ if ( false !== $query ) {
 
      return false;
 }
-
 
 $login = new Login;
 
