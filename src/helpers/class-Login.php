@@ -4,7 +4,7 @@ use Parse\ParseException;
 use Parse\ParseUser;
 
 class Login {
- public $user = new ParseUser();
+  public $user = new ParseUser();
   
   public function __construct() {    
     global $users;
@@ -62,7 +62,7 @@ public function register($post) {
     $user->set("email", "email@example.com");
   
     $body = "src\components\user.json";
-    $url = "https://parseapi.back4app.com/login";
+    $url = "https://parseapi.back4app.com/users";
     $keys = array(
     'application_id' => "X-Parse-Application-Id: BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f",
     'REST_API_KEY' => "X-Parse-REST-API-Key: swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w",
@@ -84,9 +84,8 @@ if ( $insert == true ) {
   return array('status'=>1, 'message'=>'Account created succesfully');
 }
 return array('status'=>0, 'message'=>'an unknown error ocurred');
-}
+    }
 }  
-
 
 
 private function user_exists($username) {
@@ -101,11 +100,11 @@ if ( false !== $query ) {
      }
 
      return false;
+    }
+
 }
 
 $login = new Login;
-
-}
 
 
   
