@@ -7,10 +7,7 @@ use Parse\ParseUser;
 if($SERVER["request_method"] == "post") {
     $register_status = $login->register($_POST);
 }
-?>
 
-
-<?php
 
 // construct message object
 $user = new ParseUser();

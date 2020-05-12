@@ -89,10 +89,20 @@ return array('status'=>0, 'message'=>'an unknown error ocurred');
 
 
 private function user_exists($username) {
-  $query = ParseUser::query();
-  $query->equalTo($username, 'username');
+    // declare the keys in variables
+    $body = "src\components\user.json";
+    $url = "https://parseapi.back4app.com/user";
+    $keys = array(
+      'application_id' => "X-Parse-Application-Id: BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f",
+      'REST_API_KEY' => "X-Parse-REST-API-Key: swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w",
+    );
+
+    if (isset($_POST($url, $keys, $body) ) ) {
+      //try and POST the variables with the keys and the body
+        $query = ParseUser::query();
+        $query->equalTo($username, 'username');
   
-  // uss query() method to find user
+  // use query() method to find user
   $users = $query->find();
 
 if ( false !== $query ) {
@@ -104,8 +114,8 @@ if ( false !== $query ) {
 
 }
 
+
 $login = new Login;
 
 
   
-?>
