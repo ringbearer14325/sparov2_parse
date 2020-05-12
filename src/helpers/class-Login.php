@@ -4,7 +4,7 @@ use Parse\ParseException;
 use Parse\ParseUser;
 
 class Login {
-  public $user = new ParseUser();
+ public $user = new ParseUser();
   
   public function __construct() {    
     global $users;
