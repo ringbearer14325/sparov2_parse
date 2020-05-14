@@ -1,6 +1,5 @@
 import { user } from "../helpers/signup.php";
-import { auth } from "../pages/auth.js";
-import { message } from "../helpers/messaging.php";
+import { toUser, read, fromUser, message, Connections } from "../helpers/messaging.php";
 import React from 'react';
 
 class chatPanel extends React.Component {
@@ -18,18 +17,13 @@ class chatPanel extends React.Component {
 class messagePanel extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            /*user: auth().currentUser,
-            chats: [],
-            content: '',
-            readError: null,
-            writeError: null */
+        this.toUser = ReactInit.toUser,
+        this.read = read,
+        this.fromUser = ReactInit.fromUser,
+        this.message = message,
+        this.Connections = connections,
 
-            toUser:auth().currentUser,
-            read: '',
-            fromUser:auth().currentUser,
-            message:'',
-            Connections: null
+        this.state = {
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -72,27 +66,32 @@ class messagePanel extends React.Component {
         });
       }
  
-
+ 
+ }
     render() {
         return (
        <div>
         <div className="messagePanel">
-            {this.state.chats.map(chat => {
-            <td>return <p key={chat.timestamp}>{chat.content}</p>
-            </td>
             })}
             </div>
+            <script type="text/javascript">
+                ReactDOM.render(React.createElement(
+                    greeting,
+                     { username: "<?php echo $username; ?>"}), document.body);
+            </script>
             <form action= "/messaging.php" onSubmit={this.handleSubmit}>
                <input onChange={this.handleChange} value={this.state.content}></input>
                 {this.state.error ? <p>{this.state.writeError}</p> : null}
               <button type="submit">Send</button>
               </form>
             <div>
-                Login in as: <strong>{this.state.user.email}</strong>
+                Login in as: <strong>{this.state.currentUser}</strong>
             </div>
         </div> 
         );
     }
 }
+
+export default chat;
 
 
