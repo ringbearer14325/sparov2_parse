@@ -4,20 +4,27 @@ use Parse\ParseUser;
 
 
 // handle registration
+/*
 if($SERVER["request_method"] == "post") {
     $register_status = $login->register($_POST);
 }
+*/
 
-
-// construct message object
-$user = new ParseUser();
-$user->set("username", "my name");
-$user->set("password", "my pass");
-$user->set("email", "email@example.com");
+class Register {
+  
+  
+  function register($user) {
+    
+    // construct message object
+    $user = new ParseUser();
+    $user->set("username", "my name");
+    $user->set("password", "my pass");
+    $user->set("email", "email@example.com");
 
 // check the register status
-if (isset( $register_status ) ) : 
+/*if (isset( $register_status ) ) : 
     ($register_status['status'] == true ? $class = 'success' : $class = 'error');
+    */
 
   // post method for headers
   $body = "src\components\user.json";
@@ -38,6 +45,8 @@ try {
    }
 
 }
+}
+
 
 ?>
 

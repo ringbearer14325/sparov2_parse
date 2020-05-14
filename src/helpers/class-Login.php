@@ -103,6 +103,7 @@ private function user_exists($username) {
         $query->equalTo($username, 'username');
   
   // use query() method to find user
+  $user = new ParseUser();
   $users = $query->find();
 
 if ( false !== $query ) {
