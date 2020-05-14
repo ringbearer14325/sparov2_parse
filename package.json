@@ -35,7 +35,10 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "/App.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "css-loader": "^3.5.3",
+    "style-loader": "^1.2.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ringbearer-ramos14325/sparov2_parse.git"
