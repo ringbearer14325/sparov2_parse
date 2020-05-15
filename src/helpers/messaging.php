@@ -31,11 +31,13 @@ if (isset($_POST($url, $keys, $body) ) ) {
    // error is a ParseException object with an error code and message.
    echo 'Failed to create new object, with error message: ' . $ex->getMessage();
      }
-}
 
+    }
 
-
-
+    $json = file_get_contents($message, false, null);
+    $fp = fopen("message.json", 'r');
+    fwrite($fp, json_encode($json));
+    fclose($fp);
 
 
 ?>

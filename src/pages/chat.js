@@ -1,6 +1,7 @@
 import { user } from "../helpers/signup.php";
-import { toUser, read, fromUser, message, Connections } from "../helpers/messaging.php";
+import { fp } from "../helpers/messaging.php";
 import React from 'react';
+const file = 'src\components\message.json';
 
 class chatPanel extends React.Component {
     render() {
@@ -17,70 +18,55 @@ class chatPanel extends React.Component {
 class messagePanel extends React.Component {
     constructor(props) {
         super(props);
-        this.toUser = ReactInit.toUser,
-        this.read = read,
-        this.fromUser = ReactInit.fromUser,
-        this.message = message,
-        this.Connections = connections,
+            this.state = {
+                chats: [],
+                writeError: null,
 
-        this.state = {
         };
-
+        
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    
     async componentDidMount() {
-        this.state({ readError: null });
-        try {
-            db.ref("chats").on("value", snapshot => {
-                let chats = [];
-                snapshot.foreach((snap) => {
-                    chats.push(snap.val());
-                });
-                this.setState({ chats });
-            });
-        } catch (error) {
-            this.setState({ readError: error.message});
-        }
-    }
-
+         fetch(file)
+        .then((response) => response.json())
+        .then((findresponse) => {
+            this.setState({
+                data: findresponse.message,
+         });
+        })
+      }
+    
     async handleSubmit(event) {
         event.preventDefault();
         this.setState({ writeError: null });
         try {
-            await db.ref("chats").push({
-                content: this.state.content,
-                timestamp: Date.now(),
+            await ( message ).push({
+                content: this.state.message,
                 uid: this.state.user.uid
             });
-            this.setState({ content: '' });
+            this.setState({ chats: '' });
         } catch (error) {
             this.setState({ writeError: error.message });
         }
     }
-
+    
     handleChange(event) {
         this.setState({
-          content: event.target.value
+            content: event.target.value
         });
       }
- 
- 
+      
+      
  }
-    render() {
-        return (
-       <div>
+ render() {
+     return (
+        <div>
         <div className="messagePanel">
-            })}
             </div>
-            <script type="text/javascript">
-                ReactDOM.render(React.createElement(
-                    greeting,
-                     { username: "<?php echo $username; ?>"}), document.body);
-            </script>
             <form action= "/messaging.php" onSubmit={this.handleSubmit}>
-               <input onChange={this.handleChange} value={this.state.content}></input>
+               <input onChange={this.handleChange} value={this.state.message}></input>
                 {this.state.error ? <p>{this.state.writeError}</p> : null}
               <button type="submit">Send</button>
               </form>
@@ -91,6 +77,8 @@ class messagePanel extends React.Component {
         );
     }
 }
+
+
 
 export default chat;
 
