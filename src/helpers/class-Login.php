@@ -79,6 +79,11 @@ public function register($post) {
     echo "Error: " . $ex->getCode() . " " . $ex->getMessage();
   }
 
+      $json = file_get_contents($user, false, null);
+      $fp = fopen("user.json", 'r');
+      fwrite($fp, json_encode($json));
+      fclose($fp);
+
 // show result of procedure in $insert variable
 if ( $insert == true ) {
   return array('status'=>1, 'message'=>'Account created succesfully');

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { link } from "react-router-dom";
+const file = 'src/components/user.json';
 
 
 export default class Login extends Component {
@@ -7,6 +8,7 @@ export default class Login extends Component {
         super(props);
         this.state = {
             error: null,
+            name: "",
             email: "",
             password: ""
         };
@@ -22,12 +24,28 @@ export default class Login extends Component {
     }
 
     async handleSubmit(event) {
+        this.setState({ error: null, email: '', password: ''});
         event.preventDefault();
-        this.setState({ error: "" });
         try {
-            await signin(this.state.email, this.state.password );
-        } catch (error) {
-            this.setState ({ error: error.message });
+            fetch(file, {
+                method: "GET",
+                headers: {
+                    "Content- Type": "application/ json"
+                }
+            })
+                    this.setState({
+                    name: "",
+                    email: "",
+                    password: ""
+            });
+         } catch (error) {              
+                    this.setState({
+                        error: "",
+                        name: "",
+                        email: "",
+                        password: ""
+                    });
+                }  
         }
     }
 

@@ -1,7 +1,6 @@
 import { user } from "../helpers/signup.php";
-import { fp } from "../helpers/messaging.php";
 import React from 'react';
-const file = 'src\components\message.json';
+const file = 'src/components/message.json';
 
 class chatPanel extends React.Component {
     render() {
@@ -18,8 +17,10 @@ class chatPanel extends React.Component {
 class messagePanel extends React.Component {
     constructor(props) {
         super(props);
+
             this.state = {
-                chats: [],
+                user: "",
+                message: "",
                 writeError: null,
 
         };
@@ -29,14 +30,17 @@ class messagePanel extends React.Component {
     }
     
     async componentDidMount() {
-         fetch(file)
+         fetch(file, {
+             method: "GET",
+             headers: {
+                 "Content- Type": "application/ json"
+             }
+         })
         .then((response) => response.json())
-        .then((findresponse) => {
-            this.setState({
-                data: findresponse.message,
-         });
-        })
-      }
+        .then(user => this.setState({ user } ) )
+        .then(message => this.setState({ message } ) );   
+       }
+      
     
     async handleSubmit(event) {
         event.preventDefault();
@@ -44,9 +48,9 @@ class messagePanel extends React.Component {
         try {
             await ( message ).push({
                 content: this.state.message,
-                uid: this.state.user.uid
+                uid: this.state.user
             });
-            this.setState({ chats: '' });
+            this.setState({ message: '' });
         } catch (error) {
             this.setState({ writeError: error.message });
         }
@@ -56,10 +60,9 @@ class messagePanel extends React.Component {
         this.setState({
             content: event.target.value
         });
-      }
+      }     
       
-      
- }
+ 
  render() {
      return (
         <div>
