@@ -24,7 +24,8 @@ export default class Login extends Component {
     }
 
     async handleSubmit(event) {
-        this.setState({ error: null, email: '', password: ''});
+        this.setState({ error: null, name: '', 
+            email: '', password: ''});
         event.preventDefault();
         try {
             fetch(file, {
@@ -40,14 +41,10 @@ export default class Login extends Component {
             });
          } catch (error) {              
                     this.setState({
-                        error: "",
-                        name: "",
-                        email: "",
-                        password: ""
+                        error
                     });
                 }  
         }
-    }
 
     render() {
         return (

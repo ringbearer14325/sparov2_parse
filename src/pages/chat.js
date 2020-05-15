@@ -1,13 +1,11 @@
-import { user } from "../helpers/signup.php";
 import React from 'react';
 const file = 'src/components/message.json';
 
-class chatPanel extends React.Component {
+export default class chatPanel extends React.Component {
     render() {
         return (
             <tr>
-                <th colSpan="2">
-                    {category}
+                <th colSpan="2">                   
                 </th>
             </tr>
         );
@@ -46,7 +44,7 @@ class messagePanel extends React.Component {
         event.preventDefault();
         this.setState({ writeError: null });
         try {
-            await ( message ).push({
+            await ( this.state.message ).push({
                 content: this.state.message,
                 uid: this.state.user
             });
@@ -82,7 +80,5 @@ class messagePanel extends React.Component {
 }
 
 
-
-export default chat;
 
 

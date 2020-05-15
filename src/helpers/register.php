@@ -1,14 +1,8 @@
 <?php 
 use Parse\ParseException;
 use Parse\ParseUser;
+require_once "src\helpers\helper.php";
 
-
-// handle registration
-/*
-if($SERVER["request_method"] == "post") {
-    $register_status = $login->register($_POST);
-}
-*/
 
 class Register {
   
@@ -20,11 +14,6 @@ class Register {
     $user->set("username", "my name");
     $user->set("password", "my pass");
     $user->set("email", "email@example.com");
-
-// check the register status
-/*if (isset( $register_status ) ) : 
-    ($register_status['status'] == true ? $class = 'success' : $class = 'error');
-    */
 
   // post method for headers
   $body = "src\components\user.json";
@@ -43,8 +32,14 @@ try {
   // Show the error message somewhere and let the user try again.
   echo "Error: " . $ex->getCode() . " " . $ex->getMessage();
    }
+    $json = file_get_contents($user, false, null);
+    $fp = fopen("user.json", 'r');
+    fwrite($fp, json_encode($json));
+    fclose($fp);
+  }
 
-}
+ }
+
 }
 
 

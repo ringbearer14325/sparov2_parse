@@ -2,6 +2,7 @@
 
 use Parse\ParseException;
 use Parse\ParseUser;
+require_once  "src\helpers\helper.php";
 
 class Login {
  public $user = new ParseUser();
@@ -120,8 +121,11 @@ if ( false !== $query ) {
 
 }
 
+}
+
 
 $login = new Login;
+
 
 
   

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { signup } from 'src\helpers\register.php';
-
+//import  'src/helpers/register.php';
+import axios from "axios";
+const file = "src/components/user.json";
 
 
 
@@ -29,10 +30,11 @@ handleChange(event) {
 }
 
 async handleSubmit(event) {
-    event.preventDefault();
-    this.setState({ error: ''});
-    try {
-        await signup(this.state.username, this.state.password, this.state.email);
+    try { 
+        const result = await axios.get(file)
+    this.setState({ username: result.data, password: result.data,
+    email: result.data });
+
     } catch (error) {
         this.setState({ error: error.message });
     }

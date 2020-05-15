@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
-import Parse from 'parse';
+//import "src/helpers/helper.php";
 
 export default class HomePage extends Component {
     constructor(props) {
@@ -12,21 +12,21 @@ export default class HomePage extends Component {
             result: ''
         };
 
-        let install = new Parse.Installation();
-        install.set("deviceType", navigator.userAgent);
-        install.save().then((resp) => {
-            console.log('Created install object', resp);
+        // let install = new Parse.Installation();
+        // install.set("deviceType", navigator.userAgent);
+        // install.save().then((resp) => {
+        //     console.log('Created install object', resp);
 
-            this.setState({
-                result: 'New object created with objectId: ' + resp.id
-            })
-        }, err => {
-            console.log('Error creating install object', err);
+        //     this.setState({
+        //         result: 'New object created with objectId: ' + resp.id
+        //     })
+        // }, err => {
+        //     console.log('Error creating install object', err);
 
-            this.setState({
-                result: 'Failed to create new object, with error code: ' + err.message
-            })
-        })
+        //     this.setState({
+        //         result: 'Failed to create new object, with error code: ' + err.message
+        //     })
+       // })
     }    
 
   render() {
@@ -51,5 +51,3 @@ export default class HomePage extends Component {
     )
   }
 }
-
-export default HomePage;
