@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+//import Header from '../components/Header';
+//import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 //import "src/helpers/helper.php";
 
@@ -19,7 +19,7 @@ export default class HomePage extends Component {
 
         //     this.setState({
         //         result: 'New object created with objectId: ' + resp.id
-        //     })
+        //    })
         // }, err => {
         //     console.log('Error creating install object', err);
 
@@ -32,7 +32,7 @@ export default class HomePage extends Component {
   render() {
     return (
       <div className="home">
-        <Header></Header>
+      {/* <Header></Header>  */}
         <section>
             <h1>{this.state.result}</h1>
           <div className="jumbotron jumbotron-fluid py-5">
@@ -46,7 +46,7 @@ export default class HomePage extends Component {
             </div>
           </div>
         </section>
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
       </div>
     )
   }

@@ -1,18 +1,8 @@
 import React from 'react';
 const file = 'src/components/message.json';
 
-export default class chatPanel extends React.Component {
-    render() {
-        return (
-            <tr>
-                <th colSpan="2">                   
-                </th>
-            </tr>
-        );
-    }    
-}
 
-class messagePanel extends React.Component {
+export default class chat extends React.Component {
     constructor(props) {
         super(props);
 
