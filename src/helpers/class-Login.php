@@ -2,11 +2,11 @@
 
 use Parse\ParseException;
 use Parse\ParseUser;
-require_once  "src\helpers\helper.php";
+require_once("helper.php");
 
-class Login {
- public $user = new ParseUser();
-  
+class Login {  
+  public $user;
+
   public function __construct() {    
     global $users;
     session_start();
@@ -109,8 +109,7 @@ private function user_exists($username) {
         $query->equalTo($username, 'username');
   
   // use query() method to find user
-  $user = new ParseUser();
-  $users = $query->find();
+   $users = $query->find();
 
 if ( false !== $query ) {
   return $query[0];
