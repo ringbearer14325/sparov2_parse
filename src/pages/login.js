@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { link } from "react-router-dom";
+//import   verify_login  from './class-Login.php';
 const file = 'src/components/user.json';
 
 
@@ -15,6 +16,7 @@ export default class Login extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        //verify_login();
     }
 
     handleChange(event) {

@@ -10,9 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if ( $login->verify_session() ) {
     $user = $login->user;
 
-    include( 'home.php' );
+    include( 'home.js' );
 } else {
-    include( 'login.php' );
+    include( 'login.js' );
 }
 
 ?>
