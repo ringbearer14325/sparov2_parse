@@ -18,22 +18,33 @@ class Login {
   if ( ! isset($post['username'] ) || ! isset($post['password'] ) ) {
     return false;
   }
-  
-  //check if the user exists 
-  $user = $this->user_exists( $post['username'] );
-  
-  if ( false !== $user ) {
-    if ( password_verify( $post['password'], $user->password ) ) {
-      $_SESSION['username'] = $user->username;
+
+    $url = "https://parseapi.back4app.com/login";
+    $keys = array(
+      'application_id' => "X-Parse-Application-Id: BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f",
+      'REST_API_KEY' => "X-Parse-REST-API-Key: swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w",
+      'session_token' => "X-Parse-Revocable-Session: 1"
+    );
+    $header = "Content-Type: application/json";
+
+    if(isset($_GET($url, $keys, $header) ) ) {
+     //try and GET the variables with the keys and the body
+    try {
+      $user = ParseUser::logIn("myname", "mypass");
+      // password_verify checks for the password of the user
+      if ( password_verify( $post['password'], $user->password ) ) 
+        $_SESSION['username'] = $user->username;      
+        return true;      
       
-      return true;
-    }
-}
+    } catch (ParseException $ex) {
+      echo "Error: " . $ex->getCode() . " " . $ex->getMessage();
+    
+      return false;
+    }    
+    
+    } 
 
-return false;
-
-}
-  
+  }
 
 
 public function verify_session() {
@@ -71,7 +82,7 @@ public function register($post) {
     );
     $header = "Content-Type: application/json";
 
-    if (isset($_POST($url, $keys, $body, $header) ) )  {
+    if (isset($post($url, $keys, $body, $header) ) )  {
       //try and POST the variables with the keys and the body
   try {
     $insert = $user->signUp();
@@ -122,8 +133,6 @@ private function user_exists($currentUser) {
       }
     }
   }
-
-
 }
 
 $login = new Login;
