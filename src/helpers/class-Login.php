@@ -67,9 +67,11 @@ public function register($post) {
     $keys = array(
     'application_id' => "X-Parse-Application-Id: BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f",
     'REST_API_KEY' => "X-Parse-REST-API-Key: swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w",
+    'session_token' => "X-Parse-Revocable-Session: 1"
     );
+    $header = "Content-Type: application/json";
 
-    if (isset($_POST($url, $keys, $body) ) )  {
+    if (isset($_POST($url, $keys, $body, $header) ) )  {
       //try and POST the variables with the keys and the body
   try {
     $insert = $user->signUp();
@@ -87,41 +89,42 @@ public function register($post) {
 
 // show result of procedure in $insert variable
 if ( $insert == true ) {
+
   return array('status'=>1, 'message'=>'Account created succesfully');
 }
+
 return array('status'=>0, 'message'=>'an unknown error ocurred');
     }
 }  
 
 
-private function user_exists($username) {
+private function user_exists($currentUser) {
     // declare the keys in variables
     $body = "src\components\user.json";
-    $url = "https://parseapi.back4app.com/user";
+    $url = "https://parseapi.back4app.com/user/me";
     $keys = array(
       'application_id' => "X-Parse-Application-Id: BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f",
       'REST_API_KEY' => "X-Parse-REST-API-Key: swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w",
+      'session_token' => "X-Parse-Session-Token: r:03a4c2d87a63a020a7d737c6fc64fd4c"
     );
+    $header = "Content-Type: application/json";
 
-    if (isset($_POST($url, $keys, $body) ) ) {
+    if (isset($_GET($url, $keys, $body, $header) ) ) {
       //try and POST the variables with the keys and the body
-        $query = ParseUser::query();
-        $query->equalTo($username, 'username');
-  
-  // use query() method to find user
-   $users = $query->find();
+      $currentUser = ParseUser::getCurrentUser();
 
-if ( false !== $query ) {
-  return $query[0];
-     }
+      // use the $currentuser variable to determine if the user is there
+      if ($currentUser) {
+        return true;
+      } else {
 
-     return false;
+        return false;
+      }
     }
+  }
+
 
 }
-
-}
-
 
 $login = new Login;
 

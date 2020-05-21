@@ -12,7 +12,7 @@ if ( $login->verify_session() ) {
 
     include( 'home.php' );
 } else {
-    include( 'register.php' );
+    include( 'login.php' );
 }
 
 ?>

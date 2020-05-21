@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-//import  'src/helpers/register.php';
 import axios from "axios";
+import register from './class-Login.php';
 const file = "src/components/user.json";
 
 
@@ -19,7 +19,7 @@ export default class SignUp extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    
+    register();
 }
 
 handleChange(event) {
@@ -46,7 +46,7 @@ async handleSubmit(event) {
             <div>
                 <div class="wrapper">
                 <div className="loginPanel">
-                    <form action="\register.php" method="post" onSubmit={this.handleSubmit}>
+                    <form action={register} method="post" onSubmit={this.handleSubmit}>
                     <h1>
                         Sign Up to
                          <Link to="/">Sparo</Link>
