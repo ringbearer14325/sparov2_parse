@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from "axios";
 import register from './class-Login.php';
-const file = "src/components/user.json";
-
-
+//const file = "src/components/user.json";
+const API = "https://parseapi.back4app.com/users/MyNewUserId";
+const default_query = 'redux';
 
 export default class SignUp extends Component {
     constructor(props) {
@@ -31,7 +30,6 @@ handleChange(event) {
 
 async handleSubmit(event) {
     try { 
-        const result = await axios.get(file)
     this.setState({ username: result.data, password: result.data,
     email: result.data });
 

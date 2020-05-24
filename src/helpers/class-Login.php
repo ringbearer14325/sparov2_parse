@@ -4,6 +4,7 @@ use Parse\ParseException;
 use Parse\ParseUser;
 require_once("helper.php");
 
+
 class Login {  
   public $user;
 
@@ -27,21 +28,26 @@ class Login {
     );
     $header = "Content-Type: application/json";
 
-    if(isset($_GET($url, $keys, $header) ) ) {
+    if( ! isset($_GET($url, $keys, $header) ) ) {
      //try and GET the variables with the keys and the body
     try {
-      $user = ParseUser::logIn("myname", "mypass");
+      $user = ParseUser::logIn("username", "password");
       // password_verify checks for the password of the user
       if ( password_verify( $post['password'], $user->password ) ) 
         $_SESSION['username'] = $user->username;      
-        return true;      
+        return true;
+
+        
+      } catch (ParseException $ex) {
+        echo "Error: " . $ex->getCode() . " " . $ex->getMessage();
+        
+        return false;
+      }    
       
-    } catch (ParseException $ex) {
-      echo "Error: " . $ex->getCode() . " " . $ex->getMessage();
-    
-      return false;
-    }    
-    
+      $json = file_get_contents($user, false, null);
+      $fp = fopen("user.json", 'r');
+      fwrite($fp, json_encode($json));
+      fclose($fp);
     } 
 
   }
@@ -87,20 +93,18 @@ public function register($post) {
   try {
     $insert = $user->signUp();
     // user gets created in the server
+    $json = file_get_contents($user, false, null);
+    $fp = fopen("user.json", 'r');
+    fwrite($fp, json_encode($json));
+    fclose($fp);
 
   } catch (ParseException $ex) {
     // Show the error message somewhere and let the user try again.
     echo "Error: " . $ex->getCode() . " " . $ex->getMessage();
   }
 
-      $json = file_get_contents($user, false, null);
-      $fp = fopen("user.json", 'r');
-      fwrite($fp, json_encode($json));
-      fclose($fp);
-
 // show result of procedure in $insert variable
 if ( $insert == true ) {
-
   return array('status'=>1, 'message'=>'Account created succesfully');
 }
 
