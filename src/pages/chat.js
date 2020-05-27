@@ -68,9 +68,9 @@ export default class chat extends React.Component {
                <li key={fromUser.objectID}>
             <a href={fromUser.api}>{fromUser.title}</a>
           </li>
-        )}
+          )}
         {toUser.map(toUser => 
-        <li key ={toUser.objectID}>
+        <li key={toUser.objectID}>
             <a href={toUser.api}>{toUser.title}</a>
          </li>
         )}
