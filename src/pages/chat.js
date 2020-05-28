@@ -1,7 +1,7 @@
 import React from 'react';
+import './helpers/messaging.php';
 const api = "https://parseapi.back4app.com/classes/Message/MyNewObjectId";
 const default_query = 'redux';
-import { messaging } from "src/helpers/messaging.php";
 
 export default class chat extends React.Component {
     constructor(props) {
@@ -62,7 +62,7 @@ export default class chat extends React.Component {
      return (
         <div>
         <div className="messagePanel">
-         <form action= {messaging} onSubmit={this.handleSubmit}>
+         <form action="messaging.php" method="post" onSubmit={this.handleSubmit}>
          <input onChange={this.handleChange} value={this.state.message}></input>
             {fromUser.map(fromUser => 
                <li key={fromUser.objectID}>

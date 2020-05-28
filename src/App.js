@@ -10,7 +10,7 @@ import Chat from "./pages/chat";
 import Signup from "./pages/signup";
 import Login from "./pages/login";
 import Parse from "./helpers/helper.php";
-import './css/style.css';
+import './css/index.css';
 
 
 
@@ -55,21 +55,22 @@ class App extends Component {
 
 
     this.state = {
-    //  authenticated: false,
+      authenticated: false,
       loading: true,
     };
   }
 
 
-   componentDidMount() {
+   async componentDidMount() {
+     const user = await Parse.User.Login("my_username", "my_password");
       if (user) {
         this.setState({
-         // authenticated: true,
+          authenticated: true,
           loading: false
         });
       } else {
         this.setState({
-        //  authenticated: false,
+          authenticated: false,
           loading: false
         });
       }
