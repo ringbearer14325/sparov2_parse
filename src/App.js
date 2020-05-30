@@ -49,10 +49,6 @@ function PublicRoute({ component: Component, authenticated, ...rest }) {
 class App extends Component {
   constructor() {
     super();
-    // add app and js keys for Parse Server
-    Parse.initialize("yzRv0M18nfehYtjg4toFBzWkRL1WL2Vs6CJVDISv", "4wPYRKbpTJeCdmFNaS31AiQZ8344aaYubk6Uo8VW");
-    Parse.ServerURL = 'https://parseapi.back4app.com';
-
 
     this.state = {
       authenticated: false,
