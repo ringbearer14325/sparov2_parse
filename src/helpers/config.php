@@ -1,6 +1,6 @@
 <?php
-
 use Parse\ParseUser;
+
 $users = new ParseUser();
 $users = array (
     array (
