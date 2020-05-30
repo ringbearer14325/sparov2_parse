@@ -1,6 +1,4 @@
-import Parse from 'Parse';
-
-
+import Parse from 'parse';
 
 
 <script src="node_modules/parse/dist/parse.min.js"></script>

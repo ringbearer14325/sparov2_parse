@@ -1,7 +1,5 @@
 
-use Parse/ParseUser;
-
-
+import Parse from 'parse';
 
 class signUp {
 
