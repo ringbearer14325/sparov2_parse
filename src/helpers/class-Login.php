@@ -2,7 +2,7 @@
 
 use Parse\ParseException;
 use Parse\ParseUser;
-require_once("helper.php");
+require_once('src\helpers\load.php');
 
 
 class Login {  

@@ -2,7 +2,7 @@
 use Parse\ParseUser;
 use Parse\ParseException;
 use Parse\ParseObject;
-require_once "src\helpers\helper.php";
+require_once('src\helpers\load.php');
 
 
 //  declare keys in variables
