@@ -1,5 +1,5 @@
 import React from 'react';
-import './helpers/messaging.php';
+//import './helpers/messaging.php';
 const api = "https://parseapi.back4app.com/classes/Message/MyNewObjectId";
 const default_query = 'redux';
 
