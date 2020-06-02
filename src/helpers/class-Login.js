@@ -20,12 +20,12 @@ user.set('name', 'A string');
 user.set('password', '#Password123');
 
 var url = "https://parseapi.back4app.com/users";
-let keys ={
-  "aplicationId" : "X-Parse-Application-Id: BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f",
-  "REST_API_KEY" : "X-Parse-REST-API-Key: swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w",
-  "Session_id" : "X-Parse-Revocable-Session: 1"
+let keys = {
+  "X-Parse-Application-Id" : "BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f",
+  "X-Parse-REST-API-Key" : "swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w",
+  "X-Parse-Revocable-Session" : "1"
 };
-var header = "Content-Type: application/json";
+var header = {"Content-Type" : "application/json"};
 var body = "src/components/user.json";
 
  if ($.post(url, keys, header, body) ) {
@@ -36,6 +36,9 @@ var body = "src/components/user.json";
     if (typeof document !== 'undefined') document.write(`Error while signing up user: ${JSON.stringify(error)}`);
     console.error('Error while signing up user', error);
   });
+
+
+}
 
 }
 
