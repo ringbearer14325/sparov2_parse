@@ -9,8 +9,8 @@ require_once('src\helpers\load.php');
 $url = "https://parseapi.back4app.com/classes/Message";
 $body = "src\components\message.json";
 $keys = array(
-  'application_id' => "X-Parse-Application-Id: BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f",
-  'REST_API_KEY' => "X-Parse-REST-API-Key: swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w",
+  "X-Parse-Application-Id" => "BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f",
+  "X-Parse-REST-API-Key" => "swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w",
 );
 
 // construct message object
