@@ -44,10 +44,6 @@ class Login {
         return false;
       }    
       
-      $json = file_get_contents($user, false, null);
-      $fp = fopen("user.json", 'r');
-      fwrite($fp, json_encode($json));
-      fclose($fp);
     } 
 
   }
@@ -92,11 +88,7 @@ public function register($post) {
       //try and POST the variables with the keys and the body
   try {
     $insert = $user->signUp();
-    // user gets created in the server
-    $json = file_get_contents($user, false, null);
-    $fp = fopen("user.json", 'r');
-    fwrite($fp, json_encode($json));
-    fclose($fp);
+    // user gets created in the server    
 
   } catch (ParseException $ex) {
     // Show the error message somewhere and let the user try again.
