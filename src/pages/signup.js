@@ -4,14 +4,17 @@ import axios from 'axios';
 
 const API = "https://parseapi.back4app.com/users/MyNewUserId";
 const default_query = 'redux';
+const user = new Parse.User();
+user.set('name', 'A string');
+user.set('username', 'A string');
+user.set('password', '#Password123');
+user.set('email', 'A string');
 
 export default class SignUp extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        data: null,
-        isLoading: false,
-        error: null
+          this.user = 
     };
 
     this.handleChange = this.handleChange.bind(this);
