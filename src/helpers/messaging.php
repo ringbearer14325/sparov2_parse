@@ -28,11 +28,6 @@ if (isset($_POST($url, $keys, $body) ) ) {
   $message->save();
   echo 'New object created with objectId: ' . $message->getObjectId();
 
-  $json = file_get_contents($message, false, null);
-  $fp = fopen("message.json", 'r');
-  fwrite($fp, json_encode($json));
-  fclose($fp);
-
  } catch (ParseException $ex) {
    // Execute any logic that should take place if the save fails.
    // error is a ParseException object with an error code and message.
