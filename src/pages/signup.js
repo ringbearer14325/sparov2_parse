@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { signIn } from "ParseSignUp";
 
 const API = "https://parseapi.back4app.com/users/MyNewUserId";
 const default_query = 'redux';
@@ -14,7 +15,9 @@ export default class SignUp extends Component {
     constructor(props) {
       super(props);
       this.state = {
-          this.user = 
+         name = "",
+         email = "",
+         password = ""
     };
 
     this.handleChange = this.handleChange.bind(this);
