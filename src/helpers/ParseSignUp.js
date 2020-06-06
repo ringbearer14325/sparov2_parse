@@ -10,7 +10,7 @@ var header = {"Content-Type" : "application/json"};
 var body = "src/components/user.json";
 
 
-function signIn() {    
+function signUp() {    
     const user = new Parse.User();
     user.set('name', 'A string');
     user.set('username', 'A string');

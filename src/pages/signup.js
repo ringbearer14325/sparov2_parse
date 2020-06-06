@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { signIn } from "ParseSignUp";
+import { signUp } from "ParseSignUp";
 
-const API = "https://parseapi.back4app.com/users/MyNewUserId";
-const default_query = 'redux';
-const user = new Parse.User();
-user.set('name', 'A string');
-user.set('username', 'A string');
-user.set('password', '#Password123');
-user.set('email', 'A string');
 
 export default class SignUp extends Component {
     constructor(props) {
@@ -34,16 +27,12 @@ handleChange(event) {
 async handleSubmit(event) {
     event.preventDefault();
     this.setState({ error: '' });
-        try {
-       const result = await axios.get(API + default_query);
-            
-     this.setState({ data:result.username,
-     data:result.password, data:result.email,
-    isLoading: false });
+    try {
+      await signUp(this.state.email, this.state.password);
     } catch (error) {
-        this.setState({ error, isLoading: false });
+      this.setState({ error: error.message });
     }
-}
+  }
 
 
     render() {
@@ -51,7 +40,7 @@ async handleSubmit(event) {
             <div>
                 <div class="wrapper">
                 <div className="loginPanel">
-                    <form action="class-Login.php" method="post" onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleSubmit}>
                     <h1>
                         Sign Up to
                          <Link to="/">Sparo</Link>
