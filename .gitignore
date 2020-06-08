@@ -13,7 +13,6 @@
 
 # misc
 .DS_Store
-.env.local
 .env.development.local
 .env.test.local
 .env.production.local
@@ -25,3 +24,4 @@ src/App.js
 src/App.test.js
 src/index.css
 src/setupTests.js
+config.bat
